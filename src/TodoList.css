@@ -1,44 +1,10 @@
-/* TodoList.css */
-
 .todo-container {
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f0f4f8; /* Un azul claro como fondo del contenedor */
     border-radius: 8px;
-}
-
-.todo-container h1 {
-    text-align: center;
-    color: #333;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-}
-
-form input[type="text"],
-form input[type="date"],
-form button {
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-form button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-form button:hover {
-    background-color: #0056b3;
 }
 
 ul {
@@ -47,19 +13,26 @@ ul {
 }
 
 li {
-    background-color: #fff;
+    background: linear-gradient(145deg, #e0f2ff, #f0f4f8); /* Gradiente azul claro hacia el fondo del contenedor */
     color: #333;
-    padding: 10px;
     margin-bottom: 10px;
     border-radius: 4px;
     display: flex;
-    justify-content: space-between; /* Hace que los botones queden al final */
+    justify-content: space-between;
     align-items: center;
+    padding: 10px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px, rgba(0, 0, 0, 0.06) 0px 1px 2px;
+}
+
+li:hover {
+    transform: translateY(-2px);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px, rgba(0, 0, 0, 0.1) 0px 2px 4px;
 }
 
 li span {
     display: flex;
-    gap: 10px; /* Espaciado entre botones */
+    gap: 8px;
 }
 
 li button {
@@ -72,6 +45,7 @@ li button {
     padding: 0;
     border-radius: 4px;
     background-color: #e4e4e7;
+    border: none;
     cursor: pointer;
 }
 
@@ -79,6 +53,33 @@ li button:hover {
     background-color: #d4d4d8;
 }
 
-li button i {
-    pointer-events: none;
+.boton-toggle-formulario {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px;
+}
+
+.boton-toggle-formulario:hover {
+    background-color: #0056b3;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 8px;
+}
+
+input[type="text"],
+input[type="date"],
+button[type="submit"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 5px;
 }

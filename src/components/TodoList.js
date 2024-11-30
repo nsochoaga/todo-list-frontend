@@ -44,6 +44,8 @@ const TodoList = () => {
       .catch(error => console.error('Error creating tarea:', error));
   };
 
+ const toggleFormulario = () => setMostrarFormulario(!mostrarFormulario);
+
   const toggleEstado = id => {
     const tarea = tareas.find(t => t.id === id);
     const estadoNuevo = tarea.estado === 'pendiente' ? 'completada' : 'pendiente';
@@ -111,22 +113,27 @@ const eliminarTarea = id => {
   return (
      <div>
        <h1>Lista de Tareas</h1>
-       <form onSubmit={handleSubmit}>
-         <input
-           type="text"
-           value={descripcion}
-           onChange={e => setDescripcion(e.target.value)}
-           placeholder="Descripción"
-           required
-         />
-         <input
-           type="date"
-           value={fechaLimite}
-           onChange={e => setFechaLimite(e.target.value)}
-           required
-         />
-         <button type="submit">Crear Tarea</button>
-       </form>
+       <button onClick={toggleFormulario} className="boton-toggle-formulario">
+               <i className="fas fa-plus"></i> {/* Icono de + */}
+             </button>
+             {mostrarFormulario && (
+               <form onSubmit={handleSubmit}>
+                 <input
+                   type="text"
+                   value={descripcion}
+                   onChange={e => setDescripcion(e.target.value)}
+                   placeholder="Descripción"
+                   required
+                 />
+                 <input
+                   type="date"
+                   value={fechaLimite}
+                   onChange={e => setFechaLimite(e.target.value)}
+                   required
+                 />
+                 <button type="submit">Crear Tarea</button>
+               </form>
+             )}
        <ul>
          {tareas.map(tarea => (
            <li key={tarea.id}>
